@@ -3,30 +3,18 @@ import { initConfirm } from '../../api/apiOrder';
 import { userInfo } from '../../utils/auth';
 import { Link } from 'react-router-dom';
 
+
+
 const Confirm = () => {
-    const [sessionSuccess, setSessionSuccess] = useState(false);
-    const [failed, setFailed] = useState(false);
-    const [redirectUrl, setRedirectUrl] = useState('');
-
-    useEffect(() => {
-        initConfirm(userInfo().token)
-            .then(response => {
-                if (response.data.status === 'SUCCESS') {
-                    setSessionSuccess(true);
-                    setRedirectUrl(response.data.GatewayPageURL);
-                    setFailed(false);
-                }
-            })
-            .catch(err => {
-                setFailed(true);
-                setSessionSuccess(false);
-            })
-    }, [])
-
+    
     return (<div>
-        {sessionSuccess ? window.location = redirectUrl : "Payment is processing..."}
-        {failed ? (<><p>Failed to start payment session!</p><Link to="/cart">Go to Cart</Link></>) : ""}
+        
+        <h3>Successful!</h3>
+        <Link to="/home">Go to Home</Link>
     </div>)
+    
 }
+
+
 
 export default Confirm;

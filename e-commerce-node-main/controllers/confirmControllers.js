@@ -1,6 +1,6 @@
 const { CartItem } = require('../models/cartItem');
 const { Profile } = require('../models/profile');
-const PaymentSession = require('ssl-commerz-node').PaymentSession;
+//const PaymentSession = require('ssl-commerz-node').PaymentSession;
 const { Order } = require('../models/order');
 const { Payment } = require('../models/payment');
 const path = require('path');
@@ -94,7 +94,6 @@ module.exports.initPayment = async (req, res) => {
     }
     return res.status(200).send(response);
 }
-
 module.exports.paymentSuccess = async (req, res) => {
     res.sendFile(path.join(__basedir + "/public/success.html"))
 }

@@ -41,7 +41,6 @@ module.exports.initPayment = async (req, res) => {
     // Set the urls
     payment.setUrls({
         success: 'mysite.com/success', // If payment Succeed
-        //success: 'http://localhost:3000/',
         fail: 'mysite.com/fail', // If payment failed
         cancel: 'mysite.com/cancel', // If user cancel payment
         ipn: 'mysite.com/ipn' // SSLCommerz will send http post request in this link
