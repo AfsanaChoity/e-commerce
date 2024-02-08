@@ -87,7 +87,7 @@ const Register = () => {
             {showSuccess()}
             {showLoading(loading)}
             {showError(error, error)}
-            <h3>Register Here,</h3>
+            <h3>Register Here</h3>
             <hr />
             {signUpForm()}
             <hr />

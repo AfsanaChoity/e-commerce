@@ -70,6 +70,8 @@ const ProductDetails = (props) => {
                     {product.quantity ? <>
                         &nbsp;<button className="btn btn-outline-primary btn-md" onClick={handleAddToCart(product)}>Add to Cart</button>
                     </> : ""}
+                    <div class="sketchfab-embed-wrapper"> <iframe title="sun_glass2" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/6bbd4284e5d542ad839817fc8bdb52a7/embed"> </iframe> </div>
+                    <a className="btn btn-outline-warning btn-sm"  href="https://mywebar.com/p/Project_1_sd7hmczuqn">Try On</a>
                 </div>
             </div>
         </Layout>

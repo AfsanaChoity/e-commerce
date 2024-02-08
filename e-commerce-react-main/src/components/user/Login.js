@@ -80,7 +80,7 @@ const Login = () => {
             {redirectUser()}
             {showLoading(loading)}
             {showError(error, error)}
-            <h3>Login Here,</h3>
+            <h3>Login Here</h3>
             <hr />
             {signInForm()}
             <hr />

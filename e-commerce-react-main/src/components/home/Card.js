@@ -37,6 +37,7 @@ const Card = ({ product, handleAddToCart }) => {
                     {product.quantity ? <>
                         &nbsp;<button className="btn btn-outline-primary btn-sm" onClick={handleAddToCart} >Add to Cart</button>
                     </> : ""}
+                    
                 </div>
             </div>
         </div>

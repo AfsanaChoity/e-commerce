@@ -14,7 +14,7 @@ module.exports.createProduct = async (req, res) => {
         const product = new Product(fields);
 
         if (files.photo) {
-            // <input type="file" name="photo" />
+            
             fs.readFile(files.photo.path, (err, data) => {
                 if (err) return res.status(400).send("Problem in file data!");
                 product.photo.data = data;
@@ -33,14 +33,13 @@ module.exports.createProduct = async (req, res) => {
     })
 }
 
-// Query String
-// api/product?order=desc&sortBy=name&limit=10
+
 
 module.exports.getProducts = async (req, res) => {
     
     let order = req.query.order === 'desc' ? -1 : 1;
     let sortBy = req.query.sortBy ? req.query.sortBy : '_id';
-    let limit = req.query.limit ? parseInt(req.query.limit) : 10;
+    let limit = req.query.limit ? parseInt(req.query.limit) : 5;
     const products = await Product.find()
         .select({ photo: 0, description: 0 })
         .sort({ [sortBy]: order })
@@ -105,12 +104,12 @@ const body = {
     limit: 6,
     skip: 10,
     filters: {
-        price: [1000, 2000],
+        price: [0, 1000],
         category: ['64bbe8e8f968192238e638f9', '64bba097b9826842c04033ac', '64bbe8e8f968192238e638f']
     }
 }
 
-// Filter by any fields  
+
 module.exports.filterProducts = async (req, res) => {
     let order = req.body.order === 'desc' ? -1 : 1;
     let sortBy = req.body.sortBy ? req.body.sortBy : '_id';
@@ -122,7 +121,7 @@ module.exports.filterProducts = async (req, res) => {
     for (let key in filters) {
         if (filters[key].length > 0) {
             if (key === 'price') {
-                // { price: {$gte: 0, $lte: 1000 }}
+                
                 args['price'] = {
                     $gte: filters['price'][0],
                     $lte: filters['price'][1]
@@ -130,7 +129,7 @@ module.exports.filterProducts = async (req, res) => {
                 console.log("args:", args);
             }
             if (key === 'category') {
-                // category: { $in: [''] }
+                
                 args['category'] = {
                     $in: filters['category']
                 }
